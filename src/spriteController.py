@@ -21,13 +21,13 @@ def load_chicken_sprites():
             sprites_in_direction.append(sprite)
         ordered_sprites = [sprites_in_direction[1], sprites_in_direction[0], sprites_in_direction[1],
                             sprites_in_direction[2]]
-        if row == DIRECTION_UP:
+        if row == 0:
             up_sprites.extend(ordered_sprites)
-        elif row == DIRECTION_RIGHT:
+        elif row == 1:
             right_sprites.extend(ordered_sprites)
-        elif row == DIRECTION_DOWN:
+        elif row == 2:
             down_sprites.extend(ordered_sprites)
-        elif row == DIRECTION_LEFT:
+        elif row == 3:
             left_sprites.extend(ordered_sprites)
 
     return up_sprites, right_sprites, down_sprites, left_sprites

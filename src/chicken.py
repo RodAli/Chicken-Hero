@@ -72,14 +72,33 @@ class Chicken(pygame.sprite.Sprite):
             self.rect.y -= self.speed
         elif self.direction == DIRECTION_DOWN:
             self.rect.y += self.speed
+        elif self.direction == DIRECTION_UP_RIGHT:
+            self.rect.x += self.speed
+            self.rect.y -= self.speed
+        elif self.direction == DIRECTION_UP_LEFT:
+            self.rect.x -= self.speed
+            self.rect.y -= self.speed
+        elif self.direction == DIRECTION_DOWN_RIGHT:
+            self.rect.x += self.speed
+            self.rect.y += self.speed
+        elif self.direction == DIRECTION_DOWN_LEFT:
+            self.rect.x -= self.speed
+            self.rect.y += self.speed
 
     @staticmethod
     def get_player_movement_input() -> int:
         # Read key press
         keys = pygame.key.get_pressed()
 
-        # Return corresponding direction
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_UP] and keys[pygame.K_RIGHT]:
+            return DIRECTION_UP_RIGHT
+        elif keys[pygame.K_UP] and keys[pygame.K_LEFT]:
+            return DIRECTION_UP_LEFT
+        elif keys[pygame.K_DOWN] and keys[pygame.K_RIGHT]:
+            return DIRECTION_DOWN_RIGHT
+        elif keys[pygame.K_DOWN] and keys[pygame.K_LEFT]:
+            return DIRECTION_DOWN_LEFT
+        elif keys[pygame.K_LEFT]:
             return DIRECTION_LEFT
         elif keys[pygame.K_RIGHT]:
             return DIRECTION_RIGHT
@@ -102,6 +121,14 @@ class Chicken(pygame.sprite.Sprite):
                 sprite_array_to_use = self.sprites_up
             elif self.direction == DIRECTION_DOWN:
                 sprite_array_to_use = self.sprites_down
+            elif self.direction == DIRECTION_UP_RIGHT:
+                sprite_array_to_use = self.sprites_right
+            elif self.direction == DIRECTION_DOWN_RIGHT:
+                sprite_array_to_use = self.sprites_right
+            elif self.direction == DIRECTION_UP_LEFT:
+                sprite_array_to_use = self.sprites_left
+            elif self.direction == DIRECTION_DOWN_LEFT:
+                sprite_array_to_use = self.sprites_left
 
             if not self.moving:
                 self.image = sprite_array_to_use[0]
