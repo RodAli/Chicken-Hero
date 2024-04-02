@@ -5,6 +5,7 @@ SPRITESHEET_FILE_LOCATION = "./assets/Chicken.png"
 
 SPRITE_WIDTH, SPRITE_HEIGHT = 32, 32
 
+
 def load_chicken_sprites():
     image = pygame.image.load(SPRITESHEET_FILE_LOCATION)
     up_sprites = []

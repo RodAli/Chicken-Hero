@@ -8,7 +8,7 @@ def generate_rand_point_in_rect(width, height):
     return randint(0 + e, width - e), randint(0 + e, height - e)
 
 
-def gen_id():
+def gen_id() -> str:
     return uuid.uuid1().hex
 
 
