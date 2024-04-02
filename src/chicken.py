@@ -3,7 +3,7 @@ import pygame
 from src.constants import *
 from src.spriteController import load_chicken_sprites
 from src.utility import generate_rand_point_in_rect
-from src.types import Coord
+from src.projTypes import Coord
 
 
 class Chicken(pygame.sprite.Sprite):

@@ -3,7 +3,7 @@ from src.chicken import Chicken
 from src.constants import *
 from src.utility import gen_id
 from src.foodCollection import FoodCollection
-from src.types import Coord
+from src.projTypes import Coord
 
 # Initialize Game
 pygame.init()
